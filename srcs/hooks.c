@@ -36,10 +36,12 @@ int	read_keys(int keycode, t_win *win)
 
 int	cread_keys(int keycode, t_win *win)
 {
-	if(keycode = K_W)
+	printf("\nkc:%d\n", keycode);
+	if(keycode == K_W)
 		move_w(win);
 //	else if(keycode == K_A)
-//	else if(keycode == K_S)
+	else if(keycode == K_S)
+		move_s(win);
 //	else if(keycode == K_D)
 	return (0);
 }

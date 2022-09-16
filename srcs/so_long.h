@@ -6,7 +6,7 @@
 /*   By: htomas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:50:13 by htomas-d          #+#    #+#             */
-/*   Updated: 2022/09/16 12:29:44 by htomas-d         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:30:48 by htomas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ int	cread_keys(int keycode, t_win *win);
 
 //move.c
 void	move_w(t_win *win);
+void	move_s(t_win *win);
 
 #endif
