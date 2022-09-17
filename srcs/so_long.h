@@ -18,11 +18,11 @@
 
 
 //LINUX KEYS
-# define K_ESC					65307
-# define K_W					119
-# define K_A					97
-# define K_D					100
-# define K_S					115
+# define K_ESC					53//65307
+# define K_W					13//119
+# define K_A					0//97
+# define K_D					2//100
+# define K_S					1//115
 
 typedef struct s_img
 {
@@ -90,6 +90,6 @@ int	cread_keys(int keycode, t_win *win);
 void	move_w(t_win *win);
 void	move_s(t_win *win);
 void	move_a(t_win *win);
-void	move_s(t_win *win);
+void	move_d(t_win *win);
 
 #endif
