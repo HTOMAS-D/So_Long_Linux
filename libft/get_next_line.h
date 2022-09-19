@@ -6,14 +6,14 @@
 /*   By: htomas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:14:41 by htomas-d          #+#    #+#             */
-/*   Updated: 2022/05/02 15:17:11 by htomas-d         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:52:53 by htomas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 5
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>

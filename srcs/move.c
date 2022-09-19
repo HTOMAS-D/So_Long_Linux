@@ -1,23 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: htomas-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/19 10:41:39 by htomas-d          #+#    #+#             */
+/*   Updated: 2022/09/19 10:43:23 by htomas-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 #include "../mlx/mlx.h"
 
 void	move_w(t_win *win)
 {
-	mlx_destroy_image(win->mlx_ptr, win->img->player);
-	win->img->player = mlx_xpm_file_to_image
-		(win->mlx_ptr, "xpm/pato_w.xpm", &win->map->w, &win->map->h);
-	if(win->mapstr[win->p_y - 1][win->p_x] != '1'
+	img_w(win);
+	if (win->mapstr[win->p_y - 1][win->p_x] != '1'
 		&& (win->mapstr[win->p_y - 1][win->p_x] != 'E'
 		|| !win->map->collect))
 	{
-		if(win->mapstr[win->p_y - 1][win->p_x] == 'C')
+		if (win->mapstr[win->p_y - 1][win->p_x] == 'C')
 		{
 			win->map->collect--;
 			win->mapstr[win->p_y][win->p_x] = '0';
 			win->p_y--;
 			win->mapstr[win->p_y][win->p_x] = 'P';
 		}
-		else if(win->mapstr[win->p_y - 1][win->p_x] == '0')
+		else if (win->mapstr[win->p_y - 1][win->p_x] == '0')
 		{
 			win->mapstr[win->p_y][win->p_x] = '0';
 			win->p_y--;
@@ -33,21 +43,19 @@ void	move_w(t_win *win)
 
 void	move_s(t_win *win)
 {
-	mlx_destroy_image(win->mlx_ptr, win->img->player);
-	win->img->player = mlx_xpm_file_to_image
-		(win->mlx_ptr, "xpm/pato_s.xpm", &win->map->w, &win->map->h);
-	if(win->mapstr[win->p_y + 1][win->p_x] != '1'
+	img_s(win);
+	if (win->mapstr[win->p_y + 1][win->p_x] != '1'
 		&& (win->mapstr[win->p_y + 1][win->p_x] != 'E'
-	       	|| !win->map->collect))
+		|| !win->map->collect))
 	{
-		if(win->mapstr[win->p_y + 1][win->p_x] == 'C')
+		if (win->mapstr[win->p_y + 1][win->p_x] == 'C')
 		{
 			win->map->collect--;
-		       	win->mapstr[win->p_y][win->p_x] = '0';
+			win->mapstr[win->p_y][win->p_x] = '0';
 			win->p_y++;
 			win->mapstr[win->p_y][win->p_x] = 'P';
 		}
-		else if(win->mapstr[win->p_y + 1][win->p_x] == '0')
+		else if (win->mapstr[win->p_y + 1][win->p_x] == '0')
 		{
 			win->mapstr[win->p_y][win->p_x] = '0';
 			win->p_y++;
@@ -61,23 +69,21 @@ void	move_s(t_win *win)
 	draw_img(win);
 }
 
-void    move_a(t_win *win)
+void	move_a(t_win *win)
 {
-	mlx_destroy_image(win->mlx_ptr, win->img->player);
-	win->img->player = mlx_xpm_file_to_image
-		(win->mlx_ptr, "xpm/pato_a.xpm", &win->map->w, &win->map->h);
-	if(win->mapstr[win->p_y][win->p_x - 1] != '1'
+	img_a(win);
+	if (win->mapstr[win->p_y][win->p_x - 1] != '1'
 		&& (win->mapstr[win->p_y][win->p_x - 1] != 'E'
 		|| !win->map->collect))
 	{
-		if(win->mapstr[win->p_y][win->p_x - 1] == 'C')
+		if (win->mapstr[win->p_y][win->p_x - 1] == 'C')
 		{
 			win->map->collect--;
 			win->mapstr[win->p_y][win->p_x] = '0';
 			win->p_x--;
 			win->mapstr[win->p_y][win->p_x] = 'P';
 		}
-		else if(win->mapstr[win->p_y][win->p_x - 1] == '0')
+		else if (win->mapstr[win->p_y][win->p_x - 1] == '0')
 		{
 			win->mapstr[win->p_y][win->p_x] = '0';
 			win->p_x--;
@@ -90,23 +96,22 @@ void    move_a(t_win *win)
 	}
 	draw_img(win);
 }
+
 void	move_d(t_win *win)
 {
-	mlx_destroy_image(win->mlx_ptr, win->img->player);
-	win->img->player = mlx_xpm_file_to_image
-		(win->mlx_ptr, "xpm/pato_d.xpm", &win->map->w, &win->map->h);
-	if(win->mapstr[win->p_y][win->p_x + 1] != '1'
+	img_d(win);
+	if (win->mapstr[win->p_y][win->p_x + 1] != '1'
 		&& (win->mapstr[win->p_y][win->p_x + 1] != 'E'
 		|| !win->map->collect))
 	{
-		if(win->mapstr[win->p_y][win->p_x + 1] == 'C')
+		if (win->mapstr[win->p_y][win->p_x + 1] == 'C')
 		{
 			win->map->collect--;
 			win->mapstr[win->p_y][win->p_x] = '0';
 			win->p_x++;
 			win->mapstr[win->p_y][win->p_x] = 'P';
 		}
-		else if(win->mapstr[win->p_y][win->p_x + 1] == '0')
+		else if (win->mapstr[win->p_y][win->p_x + 1] == '0')
 		{
 			win->mapstr[win->p_y][win->p_x] = '0';
 			win->p_x++;

@@ -6,7 +6,7 @@
 #    By: htomas-d <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/08 13:16:49 by htomas-d          #+#    #+#              #
-#    Updated: 2022/09/16 10:26:38 by htomas-d         ###   ########.fr        #
+#    Updated: 2022/09/19 10:04:50 by htomas-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MLX		= ./mlx/libmlx.a
 
 RM		= rm -f
 
-CC		= gcc #-Wall -Wextra -Werror #-g -fsanitize=address
+CC		= gcc -Wall -Wextra -Werror #-g -fsanitize=address
 
 MLX_FLAGS	= -lXext -lX11 -lm -lz
 

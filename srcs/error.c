@@ -6,7 +6,7 @@
 /*   By: htomas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:46:31 by htomas-d          #+#    #+#             */
-/*   Updated: 2022/09/12 15:18:33 by htomas-d         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:25:36 by htomas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	map_size(char **mapstr, t_map *map)
 		w = 0;
 		while (mapstr[h][w])
 			w++;
-		if(h && comp_w != w)
+		if (h && comp_w != w)
 			return (0);
 		comp_w = w;
 		h++;
@@ -51,17 +51,17 @@ int	check_letters(char **mapstr, t_map *map)
 	while (++i < map->h)
 	{
 		j = -1;
-		while(++j < map->w)
+		while (++j < map->w)
 		{
-			if(mapstr[i][j] == 'P')
+			if (mapstr[i][j] == 'P')
 				map->player++;
 			else if (mapstr[i][j] == 'C')
 				map->collect++;
-			else if(mapstr[i][j] == 'E')
+			else if (mapstr[i][j] == 'E')
 				map->exit++;
 		}
 	}
-	if(!map->exit || !map->collect || map->player != 1)
+	if (!map->exit || !map->collect || map->player != 1)
 		return (0);
 	return (1);
 }
@@ -69,18 +69,18 @@ int	check_letters(char **mapstr, t_map *map)
 int	check_wall(t_win win)
 {
 	int	i;
-	
+
 	i = 0;
-	while(i < win.map->w)
+	while (i < win.map->w)
 	{
-		if(win.mapstr[0][i] != '1' || win.mapstr[win.map->h - 1][i] != '1')
+		if (win.mapstr[0][i] != '1' || win.mapstr[win.map->h - 1][i] != '1')
 			return (0);
 		i++;
 	}
 	i = 0;
-	while(i < win.map->h)
+	while (i < win.map->h)
 	{
-		if(win.mapstr[i][0] != '1' || win.mapstr[1][win.map->w - 1] != '1')
+		if (win.mapstr[i][0] != '1' || win.mapstr[1][win.map->w - 1] != '1')
 			return (0);
 		i++;
 	}
@@ -89,18 +89,18 @@ int	check_wall(t_win win)
 
 int	error_check(char **mapstr, t_map *map, t_win *win)
 {
-	int i;
-	int j;
-	
-	if(!mapstr)
+	int	i;
+	int	j;
+
+	if (!mapstr)
 		return (0);
 	i = 0;
-	while(mapstr[i])
+	while (mapstr[i])
 	{
 		j = 0;
-		while(mapstr[i][j])
+		while (mapstr[i][j])
 		{
-			if(mapstr[i][j] != 'P' && mapstr[i][j] != 'C'
+			if (mapstr[i][j] != 'P' && mapstr[i][j] != 'C'
 				&& mapstr[i][j] != 'E' && mapstr[i][j] != '1'
 				&& mapstr[i][j] != '0')
 				return (0);
@@ -108,7 +108,7 @@ int	error_check(char **mapstr, t_map *map, t_win *win)
 		}
 		i++;
 	}
-	if(map_size(mapstr, map) && check_wall(*win)
+	if (map_size(mapstr, map) && check_wall(*win)
 		&& check_letters(mapstr, map))
 		return (1);
 	return (0);

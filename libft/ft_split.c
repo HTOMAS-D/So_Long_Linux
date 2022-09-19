@@ -1,4 +1,4 @@
-#include <stdio.h>/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: htomas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 18:01:54 by htomas-d          #+#    #+#             */
-/*   Updated: 2022/03/14 18:30:46 by htomas-d         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:51:38 by htomas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ char	**ft_split(const char *str, char separator)
 {
 	char	**result;
 
-	if(!str || str == NULL)
-		return (NULL);	
+	if (!str || str == NULL)
+		return (NULL);
 	result = ft_calloc(sizeof(*result), count_words(str, separator) + 1);
 	if (!result)
 		return (NULL);
