@@ -6,12 +6,20 @@
 /*   By: htomas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 10:10:06 by htomas-d          #+#    #+#             */
-/*   Updated: 2022/09/19 10:11:17 by htomas-d         ###   ########.fr       */
+/*   Updated: 2022/09/19 12:17:23 by htomas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../mlx/mlx.h"
+
+void	put_string(t_win *win)
+{
+	char	*str;
+	
+	str = ft_itoa(win->moves);
+	mlx_string_put(win->mlx_ptr, win->win_ptr, 25, 630, 0x0000FF00, str);
+}
 
 void	draw_p(t_win *win, int x, int y)
 {
@@ -54,4 +62,5 @@ void	draw_img(t_win *win)
 				put_img(win, win->img->collect, x, y);
 		}
 	}
+	put_string(win);
 }
